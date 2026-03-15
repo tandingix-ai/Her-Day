@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Karma ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fff5f7;
+            --accent: #ff74a4;
+            --glass: rgba(255, 255, 255, 0.9);
+            --text: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ✉️ Entrance Screen */
+        #gate {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s;
+        }
+
+        .envelope-icon { font-size: 100px; animation: pulse 2s infinite; }
+
+        /* ✨ Main Layout */
+        #content { display: none; opacity: 0; transition: opacity 1.5s ease; }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            box-sizing: border-box;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(255, 116, 164, 0.12);
+            max-width: 500px;
+            border: 1px solid rgba(255,255,255,0.7);
+            width: 100%;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: 1s all ease-out;
+            margin-bottom: 20px;
+        }
+
+        .glass-card.show { transform: translateY(0); opacity: 1; }
+
+        h1, h2 { font-family: 'Dancing Script', cursive; color: var(--accent); margin-bottom: 15px; }
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; }
+        p { line-height: 1.8; font-size: 1.05rem; color: #555; }
+
+        .media-frame {
+            width: 100%;
+            border-radius: 20px;
+            margin: 25px 0;
+            overflow: hidden;
+            border: 8px solid white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            background: #eee;
+        }
+
+        .media-frame img, .media-frame video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 99;
+            animation: fly var(--duration) linear forwards;
+            opacity: 0;
+        }
+
+        @keyframes fly { 
+            0% { transform: translateY(10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } 
+        }
+
+        .timeline-item {
+            text-align: left;
+            border-left: 2px dashed var(--accent);
+            padding-left: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '💖';
+            position: absolute;
+            left: -13px;
+            top: 0;
+            background: var(--bg);
+        }
+
+        footer { padding: 80px 20px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div id="gate" onclick="unlock()">
+        <div class="envelope-icon">✉️</div>
+        <h2>A special gift for Karma</h2>
+        <p style="color: white; font-weight: 300;">Tap to open with love</p>
+    </div>
+
+    <div id="content">
+        
+        <div class="section">
+            <div class="glass-card">
+                <h1>Happy Birthday, Karma 🎉</h1>
+                <p>Today is a day to celebrate the most beautiful part of my life. You bring so much light into my world, and I hope this small surprise makes you smile as much as you make me smile every day.</p>
+                <div class="media-frame">
+                    <img src="photo1.jpg" alt="Our Moment">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="glass-card">
+                <h2>A Message For You 🎥</h2>
+                <div class="media-frame">
+                    <video id="birthdayVideo" controls poster="photo2.jpg" playsinline>
+                        <source src="birthday-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p>Every time I look at this, it reminds me of how lucky I am. Press play to see a little piece of my heart.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="glass-card">
+                <h2>Why I Love You ✨</h2>
+                <p style="text-align: left;">
+                    🌸 <strong>Your Kindness:</strong> The way you care for everyone around you makes me fall for you more every single day.<br><br>
+                    ☀️ <strong>Your Smile:</strong> It's my favorite sight in the world. It makes even the hardest days feel easy.<br><br>
+                    🤝 <strong>Your Strength:</strong> You inspire me to be a better person just by being who you are.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="glass-card">
+                <h2>From Dawa Penjor 💌</h2>
+                <p>
+                    Happy Birthday once again, my love. You are the most beautiful part of my life, and every moment with you feels special. <br><br>
+                    You are the person who brings happiness, peace, and meaning into my life. Every moment with you feels beautiful, and every memory we create together becomes something I cherish deeply. No matter where life takes us, my heart belongs to you.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="glass-card">
+                <h2>Our Timeline ⏳</h2>
+                <div class="timeline-item">
+                    <strong>✨ 6th Period:</strong> When it all began. Everyone saw me, but I only saw you. You fell first... but I definitely fell harder.
+                </div>
+                <div class="timeline-item">
+                    <strong>💍 Feb 24, 2025:</strong> The day we became one. The happiest moment Dawa Penjor has ever known.
+                </div>
+                <div class="timeline-item">
+                    <strong>🏠 Today:</strong> We grow stronger every day. No matter the distance, you are my home.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="glass-card">
+                <h2>One Last Thing... 💭</h2>
+                <p>I may not always have the perfect words, but I want you to know that you are my everything. I promise to keep choosing you, every single day, forever.</p>
+                <p style="font-size: 1.5rem;">🎂🎈🎂</p>
+            </div>
+        </div>
+
+        <footer>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--accent); margin: 0;">I love you forever ❤️</p>
+            <p style="font-size: 1.1rem; opacity: 0.8; margin-top: 10px;">— Dawa Penjor</p>
+        </footer>
+    </div>
+
+    <audio id="bgm" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById('bgm');
+        const video = document.getElementById('birthdayVideo');
+
+        function unlock() {
+            const gate = document.getElementById('gate');
+            const content = document.getElementById('content');
+
+            gate.style.opacity = '0';
+            gate.style.transform = 'scale(1.2)';
+            
+            setTimeout(() => {
+                gate.style.display = 'none';
+                content.style.display = 'block';
+                setTimeout(() => { 
+                    content.style.opacity = '1'; 
+                    revealCards();
+                }, 100);
+                
+                music.play().catch(e => console.log("Audio blocked."));
+                startHearts();
+            }, 800);
+        }
+
+        // --- Video/Music Logic ---
+        video.addEventListener('play', () => music.pause());
+        video.addEventListener('pause', () => music.play());
+        video.addEventListener('ended', () => music.play());
+
+        function revealCards() {
+            const cards = document.querySelectorAll('.glass-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.1 });
+            cards.forEach(card => observer.observe(card));
+        }
+
+        function startHearts() {
+            setInterval(() => {
+                const h = document.createElement('div');
+                h.className = 'floating-heart';
+                h.innerHTML = ['❤️', '💖', '💗', '💕', '✨'][Math.floor(Math.random() * 5)];
+                h.style.left = Math.random() * 100 + 'vw';
+                h.style.bottom = '-5vh';
+                h.style.fontSize = (15 + Math.random() * 30) + 'px';
+                const duration = 5 + Math.random() * 5;
+                h.style.setProperty('--duration', duration + 's');
+                document.body.appendChild(h);
+                setTimeout(() => h.remove(), duration * 1000);
+            }, 450);
+        }
+    </script>
+</body>
+</html>
